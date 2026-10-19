@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+coverage/
+*.local
+
+# Environment files (keep examples only)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+npm-error.log*
+
+# Editor / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Backend runtime artifacts (created by scripts, not source)
+backend/vendor/
+backend/storage/logs/*
+!backend/storage/logs/.gitkeep
+backend/storage/backups/*
+!backend/storage/backups/.gitkeep
+backend/.env
+
+# Test caches
+.phpunit.result.cache
