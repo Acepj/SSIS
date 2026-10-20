@@ -73,7 +73,9 @@ See `backend/README.md` for endpoints, security model, storage rules and tests.
 - [x] Phase 2 — PHP backend foundation: dispatcher, JSON storage with
       locking/atomic writes/recovery, secure sessions, CSRF, CORS, rate
       limiting, auth endpoints, provisioning scripts, PHPUnit suite (31 tests)
-- [ ] Phase 3 — Authentication end-to-end (frontend AuthProvider, guards)
+- [x] Phase 3 — Authentication end-to-end: AuthProvider (session restore via
+      /auth/me), ProtectedRoute + RoleGuard, deep-link redirect after login,
+      session-expiry handling, logout wiring
 - [ ] Phase 4 — Student portal
 - [ ] Phase 5 — Admin portal
 - [ ] Phase 6 — Integration, tests, docs

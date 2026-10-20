@@ -14,7 +14,3 @@ export interface LoginPayload {
   password: string
   remember: boolean
 }
-
-export interface LoginResponse {
-  user: AuthUser
-}

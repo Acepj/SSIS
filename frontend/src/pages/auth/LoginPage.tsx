@@ -2,13 +2,15 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Eye, EyeOff } from 'lucide-react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 import { appConfig } from '@/config/appConfig'
 import { FormError } from '@/components/forms/FormError'
 import { TextField } from '@/components/forms/TextField'
+import { Alert } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
+import { useAuth } from '@/features/auth/AuthProvider'
 import { login } from '@/features/auth/authApi'
 import { loginSchema, type LoginFormValues } from '@/features/auth/authSchemas'
 import { ApiError } from '@/lib/apiClient'
@@ -44,8 +46,15 @@ function resolveLoginError(error: unknown): string {
 
 export default function LoginPage() {
   const navigate = useNavigate()
+  const location = useLocation()
+  const auth = useAuth()
   const [showPassword, setShowPassword] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
+
+  // Deep link the user tried to reach before being sent to login (if any).
+  const locationState = location.state as { from?: string } | null
+  const redirectTo =
+    typeof locationState?.from === 'string' && locationState.from.startsWith('/') ? locationState.from : null
 
   const rememberedIdentifier =
     typeof window !== 'undefined' ? window.localStorage.getItem(REMEMBERED_IDENTIFIER_KEY) : null
@@ -58,6 +67,11 @@ export default function LoginPage() {
       remember: rememberedIdentifier !== null,
     },
   })
+
+  // Already signed in? Leave the login page for the user's own area.
+  if (auth.status === 'authenticated' && auth.user !== null) {
+    return <Navigate to={redirectTo ?? routePaths.defaultForRole(auth.user.role)} replace />
+  }
 
   const onSubmit = async (values: LoginFormValues) => {
     setSubmitError(null)
@@ -74,7 +88,8 @@ export default function LoginPage() {
         window.localStorage.removeItem(REMEMBERED_IDENTIFIER_KEY)
       }
 
-      navigate(routePaths.defaultForRole(user.role), { replace: true })
+      auth.signIn(user)
+      navigate(redirectTo ?? routePaths.defaultForRole(user.role), { replace: true })
     } catch (error) {
       setSubmitError(resolveLoginError(error))
     }
@@ -86,6 +101,12 @@ export default function LoginPage() {
         <h1 className="text-2xl font-semibold tracking-tight text-foreground">Welcome Back!</h1>
         <p className="mt-1.5 text-sm text-muted-foreground">Sign in to access your student services.</p>
       </header>
+
+      {auth.sessionExpired && (
+        <Alert variant="warning" title="Session expired" className="mt-5">
+          Your session has expired or you were signed out. Please sign in again to continue.
+        </Alert>
+      )}
 
       <form
         onSubmit={form.handleSubmit(onSubmit)}
