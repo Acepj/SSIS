@@ -1,0 +1,6 @@
+# Apache: route everything through the front controller and disable listing.
+Options -Indexes
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]

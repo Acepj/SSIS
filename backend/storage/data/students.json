@@ -1,0 +1,41 @@
+[
+    {
+        "id": "stu_7ebec699f1c3767f",
+        "user_id": "usr_1fe4abcfb57b869d",
+        "student_id": "2026-00123",
+        "full_name": "Maria Santos",
+        "email": "maria.santos@student.demo.edu",
+        "contact_number": "+63 917 555 0123",
+        "program": "BS Information Technology",
+        "year_level": "3rd Year",
+        "enrollment_status": "Enrolled",
+        "created_at": "2026-10-20T03:05:04+00:00",
+        "updated_at": "2026-10-20T03:05:04+00:00"
+    },
+    {
+        "id": "stu_ceac280ada689b8a",
+        "user_id": "usr_c16ebb35b137b89f",
+        "student_id": "2026-00124",
+        "full_name": "Juan Dela Cruz",
+        "email": "juan.delacruz@student.demo.edu",
+        "contact_number": "+63 917 555 0124",
+        "program": "BS Computer Science",
+        "year_level": "2nd Year",
+        "enrollment_status": "Enrolled",
+        "created_at": "2026-10-20T03:05:04+00:00",
+        "updated_at": "2026-10-20T03:05:04+00:00"
+    },
+    {
+        "id": "stu_d91f7e5bb287de30",
+        "user_id": "usr_5fafdaaad381cec6",
+        "student_id": "2026-00125",
+        "full_name": "Ana Reyes",
+        "email": "ana.reyes@student.demo.edu",
+        "contact_number": "+63 917 555 0125",
+        "program": "BS Business Administration",
+        "year_level": "4th Year",
+        "enrollment_status": "Enrolled",
+        "created_at": "2026-10-20T03:05:05+00:00",
+        "updated_at": "2026-10-20T03:05:05+00:00"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "id": "usr_eb7896885c10739f",
+        "username": "ssis.admin",
+        "password_hash": "$2y$10$1j9n/eQxZ8.WGpPXw54sS.EGqXBOy.SVAHfFal46jUO7pCB5CFnAK",
+        "role": "admin",
+        "active": true,
+        "display_name": "SSIS Administrator",
+        "created_at": "2026-10-20T03:05:04+00:00",
+        "updated_at": "2026-10-20T03:05:04+00:00"
+    },
+    {
+        "id": "usr_1fe4abcfb57b869d",
+        "username": "2026-00123",
+        "password_hash": "$2y$10$3dwg2UDtIl6cnVN1QnCqAO6A1Utl0qQxIBg5JKI/qy1XaPUnmgIIO",
+        "role": "student",
+        "active": true,
+        "display_name": "Maria Santos",
+        "created_at": "2026-10-20T03:05:04+00:00",
+        "updated_at": "2026-10-20T03:05:04+00:00"
+    },
+    {
+        "id": "usr_c16ebb35b137b89f",
+        "username": "2026-00124",
+        "password_hash": "$2y$10$gi0.j9CkxwU3CDrcSrRh3OubrGmlAQWN.IqXrs0IkmJZNCS1X5KEO",
+        "role": "student",
+        "active": true,
+        "display_name": "Juan Dela Cruz",
+        "created_at": "2026-10-20T03:05:04+00:00",
+        "updated_at": "2026-10-20T03:05:04+00:00"
+    },
+    {
+        "id": "usr_5fafdaaad381cec6",
+        "username": "2026-00125",
+        "password_hash": "$2y$10$aq7GPT9T5MEOdWIhmZsvJ.ff0nyHz1LdQjttiNX.OsMQO/akixKoK",
+        "role": "student",
+        "active": true,
+        "display_name": "Ana Reyes",
+        "created_at": "2026-10-20T03:05:05+00:00",
+        "updated_at": "2026-10-20T03:05:05+00:00"
+    }
+]

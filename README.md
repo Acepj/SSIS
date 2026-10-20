@@ -42,13 +42,15 @@ npm run dev          # http://localhost:5173, proxies /api to :8000
 
 ### 2. Backend (Phase 2+)
 
-The PHP API will run with:
-
 ```bash
-C:\xammp\php\php.exe -S 127.0.0.1:8000 -t backend/public backend/public/index.php
+cd backend
+cp .env.example .env
+C:\xammp\php\php.exe scripts\create-demo-admin.php --username=ssis.admin
+C:\xammp\php\php.exe -S 127.0.0.1:8000 -t public public/index.php
 ```
 
 (PHP is not on PATH on this machine; PHP 8.2.12 lives at `C:\xammp\php\php.exe`.)
+See `backend/README.md` for endpoints, security model, storage rules and tests.
 
 ## Design system
 
@@ -68,8 +70,10 @@ C:\xammp\php\php.exe -S 127.0.0.1:8000 -t backend/public backend/public/index.ph
 
 - [x] Phase 1 — Frontend foundation: design system, shared components,
       split-screen login UI, router, API client, auth feature module
-- [ ] Phase 2 — PHP backend foundation + JSON storage
-- [ ] Phase 3 — Authentication end-to-end
+- [x] Phase 2 — PHP backend foundation: dispatcher, JSON storage with
+      locking/atomic writes/recovery, secure sessions, CSRF, CORS, rate
+      limiting, auth endpoints, provisioning scripts, PHPUnit suite (31 tests)
+- [ ] Phase 3 — Authentication end-to-end (frontend AuthProvider, guards)
 - [ ] Phase 4 — Student portal
 - [ ] Phase 5 — Admin portal
 - [ ] Phase 6 — Integration, tests, docs
