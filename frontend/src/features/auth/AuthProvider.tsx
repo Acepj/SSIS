@@ -90,6 +90,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- useAuth is the colocated consumer hook for AuthProvider
 export function useAuth(): AuthContextValue {
   const context = useContext(AuthContext)
   if (context === null) {

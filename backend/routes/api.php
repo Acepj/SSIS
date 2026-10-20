@@ -3,18 +3,24 @@
 declare(strict_types=1);
 
 use SSIS\Controllers\AuthController;
+use SSIS\Controllers\CourseController;
+use SSIS\Controllers\DocumentRequestController;
+use SSIS\Controllers\EnrollmentController;
+use SSIS\Controllers\NotificationController;
+use SSIS\Controllers\StudentController;
 
 /*
  * API route table. Each entry:
  *   [HTTP method, path pattern, [ControllerClass, action], [middleware...]]
  *
  * Middleware tokens:
- *   auth        - requires a valid active session (AuthMiddleware)
- *   admin       - requires an active administrator (AdminMiddleware)
- *   csrf        - validates X-CSRF-Token on state-changing requests
- *   rate:<key>  - applies a configured rate limit (e.g. rate:login)
+ *   auth[:role]  - requires a valid active session (optionally a role,
+ *                  e.g. auth:student)
+ *   admin        - requires an active administrator (AdminMiddleware)
+ *   csrf         - validates X-CSRF-Token on state-changing requests
+ *   rate:<key>   - applies a configured rate limit (e.g. rate:login)
  *
- * Student and admin route groups are appended in Phases 4 and 5.
+ * Admin route group is appended in Phase 5.
  */
 
 return [
@@ -23,4 +29,19 @@ return [
     ['POST', '/api/v1/auth/logout', [AuthController::class, 'logout'], ['csrf']],
     ['GET', '/api/v1/auth/me', [AuthController::class, 'me'], ['auth']],
     ['GET', '/api/v1/auth/csrf', [AuthController::class, 'csrf'], []],
+
+    // --- Student portal -----------------------------------------------------
+    ['GET', '/api/v1/student/dashboard', [StudentController::class, 'dashboard'], ['auth:student']],
+    ['GET', '/api/v1/student/profile', [StudentController::class, 'profile'], ['auth:student']],
+    ['PATCH', '/api/v1/student/profile', [StudentController::class, 'updateProfile'], ['auth:student', 'csrf']],
+    ['GET', '/api/v1/student/enrollment', [EnrollmentController::class, 'show'], ['auth:student']],
+    ['GET', '/api/v1/student/requests', [DocumentRequestController::class, 'index'], ['auth:student']],
+    ['POST', '/api/v1/student/requests', [DocumentRequestController::class, 'store'], ['auth:student', 'csrf']],
+    ['GET', '/api/v1/student/requests/{id}', [DocumentRequestController::class, 'show'], ['auth:student']],
+    ['POST', '/api/v1/student/requests/{id}/cancel', [DocumentRequestController::class, 'cancel'], ['auth:student', 'csrf']],
+    ['GET', '/api/v1/student/courses', [CourseController::class, 'index'], ['auth:student']],
+    ['GET', '/api/v1/student/courses/{id}', [CourseController::class, 'show'], ['auth:student']],
+    ['GET', '/api/v1/student/notifications', [NotificationController::class, 'index'], ['auth:student']],
+    ['POST', '/api/v1/student/notifications/{id}/read', [NotificationController::class, 'markRead'], ['auth:student', 'csrf']],
+    ['POST', '/api/v1/student/notifications/read-all', [NotificationController::class, 'markAllRead'], ['auth:student', 'csrf']],
 ];

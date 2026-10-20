@@ -1,0 +1,56 @@
+[
+    {
+        "id": "ntf_da5c1842b14d2014",
+        "recipient_user_id": "usr_1fe4abcfb57b869d",
+        "title": "Welcome to SSIS",
+        "message": "Your student services account is ready. Submit and track document requests here.",
+        "read_at": "2026-10-20T04:14:09+00:00",
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "created_by": "system"
+    },
+    {
+        "id": "ntf_1d0dbef5ad00f442",
+        "recipient_user_id": "usr_1fe4abcfb57b869d",
+        "title": "Enrollment confirmed",
+        "message": "Your enrollment for First Semester 2026-2027 is recorded as Enrolled.",
+        "read_at": "2026-10-20T04:14:09+00:00",
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "created_by": "system"
+    },
+    {
+        "id": "ntf_017ad9d041735125",
+        "recipient_user_id": "usr_c16ebb35b137b89f",
+        "title": "Welcome to SSIS",
+        "message": "Your student services account is ready. Submit and track document requests here.",
+        "read_at": null,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "created_by": "system"
+    },
+    {
+        "id": "ntf_4376fd3196f379e2",
+        "recipient_user_id": "usr_c16ebb35b137b89f",
+        "title": "Enrollment confirmed",
+        "message": "Your enrollment for First Semester 2026-2027 is recorded as Enrolled.",
+        "read_at": null,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "created_by": "system"
+    },
+    {
+        "id": "ntf_90132f1062104087",
+        "recipient_user_id": "usr_5fafdaaad381cec6",
+        "title": "Welcome to SSIS",
+        "message": "Your student services account is ready. Submit and track document requests here.",
+        "read_at": null,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "created_by": "system"
+    },
+    {
+        "id": "ntf_03caa72d01c213ae",
+        "recipient_user_id": "usr_5fafdaaad381cec6",
+        "title": "Enrollment confirmed",
+        "message": "Your enrollment for First Semester 2026-2027 is recorded as Enrolled.",
+        "read_at": null,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "created_by": "system"
+    }
+]

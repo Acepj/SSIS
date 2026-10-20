@@ -143,7 +143,7 @@ function resolve_middleware(string $spec): object
     $argument = $parts[1] ?? null;
 
     return match ($name) {
-        'auth' => new AuthMiddleware(),
+        'auth' => new AuthMiddleware($argument !== null && $argument !== '' ? $argument : null),
         'admin' => new AdminMiddleware(),
         'csrf' => new CsrfMiddleware(),
         'rate' => new RateLimitMiddleware((string) $argument),

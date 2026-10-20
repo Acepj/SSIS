@@ -3,29 +3,25 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ProtectedRoute } from '@/features/auth/ProtectedRoute'
 import { RoleGuard } from '@/features/auth/RoleGuard'
 import AuthLayout from '@/layouts/AuthLayout'
+import StudentLayout from '@/layouts/StudentLayout'
 import ForgotPasswordPage from '@/pages/auth/ForgotPasswordPage'
 import LoginPage from '@/pages/auth/LoginPage'
 import UnauthorizedPage from '@/pages/auth/UnauthorizedPage'
 import NotFoundPage from '@/pages/errors/NotFoundPage'
+import CourseDetailsPage from '@/pages/student/CourseDetailsPage'
+import CoursesPage from '@/pages/student/CoursesPage'
+import DocumentRequestPage from '@/pages/student/DocumentRequestPage'
+import EnrollmentPage from '@/pages/student/EnrollmentPage'
+import HelpSupportPage from '@/pages/student/HelpSupportPage'
+import NotificationsPage from '@/pages/student/NotificationsPage'
+import RequestDetailsPage from '@/pages/student/RequestDetailsPage'
+import RequestStatusPage from '@/pages/student/RequestStatusPage'
+import StudentDashboardPage from '@/pages/student/StudentDashboardPage'
+import StudentProfilePage from '@/pages/student/StudentProfilePage'
 import { PendingPhasePage } from './PendingPhasePage'
 import { routePaths } from './routePaths'
 
-const STUDENT_PHASE = 'Phase 4 - Student Portal'
 const ADMIN_PHASE = 'Phase 5 - Admin Portal'
-
-/** [path pattern, page title] for portal routes whose pages arrive later. */
-const pendingStudentRoutes: Array<[string, string]> = [
-  ['/student/dashboard', 'Dashboard'],
-  ['/student/enrollment', 'Enrollment'],
-  ['/student/document-request', 'Document Request'],
-  ['/student/request-status', 'Request Status'],
-  ['/student/requests/:id', 'Request Details'],
-  ['/student/courses', 'Courses'],
-  ['/student/courses/:id', 'Course Details'],
-  ['/student/profile', 'Profile'],
-  ['/student/notifications', 'Notifications'],
-  ['/student/help', 'Help & Support'],
-]
 
 const pendingAdminRoutes: Array<[string, string]> = [
   ['/admin/dashboard', 'Dashboard'],
@@ -63,9 +59,18 @@ export default function AppRouter() {
 
         <Route element={<ProtectedRoute />}>
           <Route element={<RoleGuard role="student" />}>
-            {pendingStudentRoutes.map(([path, title]) => (
-              <Route key={path} path={path} element={<PendingPhasePage title={title} phase={STUDENT_PHASE} />} />
-            ))}
+            <Route element={<StudentLayout />}>
+              <Route path="/student/dashboard" element={<StudentDashboardPage />} />
+              <Route path="/student/enrollment" element={<EnrollmentPage />} />
+              <Route path="/student/document-request" element={<DocumentRequestPage />} />
+              <Route path="/student/request-status" element={<RequestStatusPage />} />
+              <Route path="/student/requests/:id" element={<RequestDetailsPage />} />
+              <Route path="/student/courses" element={<CoursesPage />} />
+              <Route path="/student/courses/:id" element={<CourseDetailsPage />} />
+              <Route path="/student/profile" element={<StudentProfilePage />} />
+              <Route path="/student/notifications" element={<NotificationsPage />} />
+              <Route path="/student/help" element={<HelpSupportPage />} />
+            </Route>
           </Route>
 
           <Route element={<RoleGuard role="admin" />}>

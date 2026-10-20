@@ -1,0 +1,178 @@
+[
+    {
+        "id": "req_3cb6ee2d0afb30d6",
+        "request_number": "REQ-2026-7NAQFD",
+        "student_id": "2026-00123",
+        "document_type": "Certificate of Enrollment",
+        "purpose": "Scholarship application requirement.",
+        "copies": 1,
+        "delivery_method": "Pickup",
+        "additional_instructions": "",
+        "status": "Completed",
+        "processing_notes": "",
+        "created_at": "2026-10-20T04:14:03+00:00",
+        "updated_at": "2026-10-20T04:14:03+00:00",
+        "status_history": [
+            {
+                "previous_status": null,
+                "new_status": "Pending",
+                "changed_by": "usr_1fe4abcfb57b869d",
+                "changed_by_name": "Maria Santos",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Request submitted."
+            },
+            {
+                "previous_status": "Pending",
+                "new_status": "Processing",
+                "changed_by": "seed-script",
+                "changed_by_name": "Student Services",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Sample status for demonstration."
+            },
+            {
+                "previous_status": "Processing",
+                "new_status": "Ready for Pickup",
+                "changed_by": "seed-script",
+                "changed_by_name": "Student Services",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Sample status for demonstration."
+            },
+            {
+                "previous_status": "Ready for Pickup",
+                "new_status": "Completed",
+                "changed_by": "seed-script",
+                "changed_by_name": "Student Services",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Sample status for demonstration."
+            }
+        ]
+    },
+    {
+        "id": "req_4036671bf091994a",
+        "request_number": "REQ-2026-STW94F",
+        "student_id": "2026-00123",
+        "document_type": "Transcript of Records",
+        "purpose": "On-the-job training application.",
+        "copies": 1,
+        "delivery_method": "Pickup",
+        "additional_instructions": "",
+        "status": "Pending",
+        "processing_notes": "",
+        "created_at": "2026-10-20T04:14:03+00:00",
+        "updated_at": "2026-10-20T04:14:03+00:00",
+        "status_history": [
+            {
+                "previous_status": null,
+                "new_status": "Pending",
+                "changed_by": "usr_1fe4abcfb57b869d",
+                "changed_by_name": "Maria Santos",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Request submitted."
+            }
+        ]
+    },
+    {
+        "id": "req_aa76c5f2d7fb49d5",
+        "request_number": "REQ-2026-Z9LV27",
+        "student_id": "2026-00124",
+        "document_type": "Certificate of Grades",
+        "purpose": "Parental record copy.",
+        "copies": 1,
+        "delivery_method": "Pickup",
+        "additional_instructions": "",
+        "status": "Processing",
+        "processing_notes": "",
+        "created_at": "2026-10-20T04:14:03+00:00",
+        "updated_at": "2026-10-20T04:14:03+00:00",
+        "status_history": [
+            {
+                "previous_status": null,
+                "new_status": "Pending",
+                "changed_by": "usr_c16ebb35b137b89f",
+                "changed_by_name": "Juan Dela Cruz",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Request submitted."
+            },
+            {
+                "previous_status": "Pending",
+                "new_status": "Processing",
+                "changed_by": "seed-script",
+                "changed_by_name": "Student Services",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Sample status for demonstration."
+            }
+        ]
+    },
+    {
+        "id": "req_965e7dba8991b529",
+        "request_number": "REQ-2026-JY7HQ5",
+        "student_id": "2026-00125",
+        "document_type": "Certificate of Good Moral Character",
+        "purpose": "Employment requirement.",
+        "copies": 1,
+        "delivery_method": "Pickup",
+        "additional_instructions": "",
+        "status": "Completed",
+        "processing_notes": "",
+        "created_at": "2026-10-20T04:14:03+00:00",
+        "updated_at": "2026-10-20T04:14:03+00:00",
+        "status_history": [
+            {
+                "previous_status": null,
+                "new_status": "Pending",
+                "changed_by": "usr_5fafdaaad381cec6",
+                "changed_by_name": "Ana Reyes",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Request submitted."
+            },
+            {
+                "previous_status": "Pending",
+                "new_status": "Processing",
+                "changed_by": "seed-script",
+                "changed_by_name": "Student Services",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Sample status for demonstration."
+            },
+            {
+                "previous_status": "Processing",
+                "new_status": "Completed",
+                "changed_by": "seed-script",
+                "changed_by_name": "Student Services",
+                "changed_at": "2026-10-20T04:14:03+00:00",
+                "note": "Sample status for demonstration."
+            }
+        ]
+    },
+    {
+        "id": "req_68c80e9ff9e98d6a",
+        "request_number": "REQ-2026-XQYYBY",
+        "student_id": "2026-00123",
+        "document_type": "Certificate of Grades",
+        "purpose": "Personal record",
+        "copies": 2,
+        "delivery_method": "Pickup",
+        "additional_instructions": "",
+        "status": "Cancelled",
+        "processing_notes": "",
+        "created_at": "2026-10-20T04:14:08+00:00",
+        "updated_at": "2026-10-20T04:14:09+00:00",
+        "status_history": [
+            {
+                "previous_status": null,
+                "new_status": "Pending",
+                "changed_by": "usr_1fe4abcfb57b869d",
+                "changed_by_name": "Maria Santos",
+                "changed_at": "2026-10-20T04:14:08+00:00",
+                "note": "Request submitted."
+            },
+            {
+                "previous_status": "Pending",
+                "new_status": "Cancelled",
+                "changed_by": "usr_1fe4abcfb57b869d",
+                "changed_by_name": "Maria Santos",
+                "changed_at": "2026-10-20T04:14:09+00:00",
+                "note": "Cancelled by student."
+            }
+        ]
+    }
+]

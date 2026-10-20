@@ -1,0 +1,122 @@
+[
+    {
+        "id": "crs_b711dadd4a72aefe",
+        "course_code": "IT 101",
+        "title": "Introduction to Information Technology",
+        "description": "Fundamentals of computing systems, software, and networks.",
+        "program": "BS Information Technology",
+        "year_level": "1st Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_e7cb0892f8a930f4",
+        "course_code": "IT 210",
+        "title": "Data Structures and Algorithms",
+        "description": "Core problem-solving techniques and algorithm analysis.",
+        "program": "BS Information Technology",
+        "year_level": "2nd Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_2323a26898d34f35",
+        "course_code": "IT 315",
+        "title": "Web Systems Development",
+        "description": "Server-side and client-side web application development.",
+        "program": "BS Information Technology",
+        "year_level": "3rd Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_29e7bc29ee0f9a32",
+        "course_code": "CS 120",
+        "title": "Object-Oriented Programming",
+        "description": "Design and implementation using OOP principles.",
+        "program": "BS Computer Science",
+        "year_level": "2nd Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_7c1ad6dd47708aea",
+        "course_code": "CS 230",
+        "title": "Discrete Mathematics",
+        "description": "Logic, sets, combinatorics, and graph theory for computing.",
+        "program": "BS Computer Science",
+        "year_level": "2nd Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_93ac33436360cbf0",
+        "course_code": "BA 110",
+        "title": "Principles of Management",
+        "description": "Foundations of planning, organizing, and leading organizations.",
+        "program": "BS Business Administration",
+        "year_level": "1st Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_5f6d7750385e583e",
+        "course_code": "BA 250",
+        "title": "Business Finance",
+        "description": "Financial decision-making and capital management.",
+        "program": "BS Business Administration",
+        "year_level": "3rd Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_b0ce40a801280fd3",
+        "course_code": "GE 150",
+        "title": "Ethics",
+        "description": "Moral reasoning applied to professional and civic life.",
+        "program": "All Programs",
+        "year_level": "1st Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_beb717600b48723a",
+        "course_code": "GE 160",
+        "title": "Communication Skills",
+        "description": "Written and oral communication for academic and workplace settings.",
+        "program": "All Programs",
+        "year_level": "1st Year",
+        "semester": "First Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    },
+    {
+        "id": "crs_8f2036f985acf89e",
+        "course_code": "IT 320",
+        "title": "Systems Integration and Architecture",
+        "description": "Designing integrated enterprise systems.",
+        "program": "BS Information Technology",
+        "year_level": "3rd Year",
+        "semester": "Second Semester",
+        "active": true,
+        "created_at": "2026-10-20T04:12:07+00:00",
+        "updated_at": "2026-10-20T04:12:07+00:00"
+    }
+]

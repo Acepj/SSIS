@@ -1,3 +1,4 @@
+import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Loader2 } from 'lucide-react'
 import { forwardRef, type ButtonHTMLAttributes } from 'react'
@@ -34,22 +35,27 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /** Shows a spinner and disables the button while an action is running. */
   loading?: boolean
+  /** Renders the child (e.g. a React Router Link) with button styles instead of a <button>. */
+  asChild?: boolean
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, loading = false, disabled, children, type = 'button', ...props }, ref) => (
-    <button
-      ref={ref}
-      type={type}
-      className={cn(buttonVariants({ variant, size }), className)}
-      disabled={disabled || loading}
-      aria-busy={loading || undefined}
-      {...props}
-    >
-      {loading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-      {children}
-    </button>
-  ),
+  ({ className, variant, size, loading = false, disabled, children, type = 'button', asChild = false, ...props }, ref) => {
+    const Component = asChild ? Slot : 'button'
+    return (
+      <Component
+        ref={ref}
+        type={asChild ? undefined : type}
+        className={cn(buttonVariants({ variant, size }), className)}
+        disabled={disabled || loading}
+        aria-busy={loading || undefined}
+        {...props}
+      >
+        {loading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+        {children}
+      </Component>
+    )
+  },
 )
 Button.displayName = 'Button'
 
