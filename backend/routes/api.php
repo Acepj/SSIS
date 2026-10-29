@@ -8,6 +8,12 @@ use SSIS\Controllers\DocumentRequestController;
 use SSIS\Controllers\EnrollmentController;
 use SSIS\Controllers\NotificationController;
 use SSIS\Controllers\StudentController;
+use SSIS\Controllers\AdminStudentController;
+use SSIS\Controllers\AdminDocumentRequestController;
+use SSIS\Controllers\AdminEnrollmentController;
+use SSIS\Controllers\AdminCourseController;
+use SSIS\Controllers\AdminNotificationController;
+use SSIS\Controllers\AdminReportController;
 
 /*
  * API route table. Each entry:
@@ -44,4 +50,24 @@ return [
     ['GET', '/api/v1/student/notifications', [NotificationController::class, 'index'], ['auth:student']],
     ['POST', '/api/v1/student/notifications/{id}/read', [NotificationController::class, 'markRead'], ['auth:student', 'csrf']],
     ['POST', '/api/v1/student/notifications/read-all', [NotificationController::class, 'markAllRead'], ['auth:student', 'csrf']],
+
+    // --- Admin portal (Phase 5) ------------------------------------------------
+    ['GET', '/api/v1/admin/requests', [AdminDocumentRequestController::class, 'index'], ['admin', 'auth']],
+    ['GET', '/api/v1/admin/requests/{id}', [AdminDocumentRequestController::class, 'show'], ['admin', 'auth']],
+    ['PATCH', '/api/v1/admin/requests/{id}/status', [AdminDocumentRequestController::class, 'updateStatus'], ['admin', 'auth', 'csrf']],
+    ['GET', '/api/v1/admin/students', [AdminStudentController::class, 'index'], ['admin', 'auth']],
+    ['GET', '/api/v1/admin/students/{id}', [AdminStudentController::class, 'show'], ['admin', 'auth']],
+    ['GET', '/api/v1/admin/students/{id}/enrollments', [AdminEnrollmentController::class, 'index'], ['admin', 'auth']],
+    ['POST', '/api/v1/admin/enrollments', [AdminEnrollmentController::class, 'store'], ['admin', 'auth', 'csrf']],
+    ['GET', '/api/v1/admin/enrollments/{id}', [AdminEnrollmentController::class, 'show'], ['admin', 'auth']],
+    ['PATCH', '/api/v1/admin/enrollments/{id}', [AdminEnrollmentController::class, 'update'], ['admin', 'auth', 'csrf']],
+    ['GET', '/api/v1/admin/courses', [AdminCourseController::class, 'index'], ['admin', 'auth']],
+    ['POST', '/api/v1/admin/courses', [AdminCourseController::class, 'store'], ['admin', 'auth', 'csrf']],
+    ['GET', '/api/v1/admin/courses/{id}', [AdminCourseController::class, 'show'], ['admin', 'auth']],
+    ['PUT', '/api/v1/admin/courses/{id}', [AdminCourseController::class, 'update'], ['admin', 'auth', 'csrf']],
+    ['DELETE', '/api/v1/admin/courses/{id}', [AdminCourseController::class, 'archive'], ['admin', 'auth', 'csrf']],
+    ['GET', '/api/v1/admin/notifications', [AdminNotificationController::class, 'index'], ['admin', 'auth']],
+    ['POST', '/api/v1/admin/notifications', [AdminNotificationController::class, 'store'], ['admin', 'auth', 'csrf']],
+    ['GET', '/api/v1/admin/reports/summary', [AdminReportController::class, 'summary'], ['admin', 'auth']],
+    ['GET', '/api/v1/admin/reports/requests.csv', [AdminReportController::class, 'exportCsv'], ['admin', 'auth']],
 ];

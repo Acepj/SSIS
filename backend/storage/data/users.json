@@ -2,41 +2,41 @@
     {
         "id": "usr_eb7896885c10739f",
         "username": "ssis.admin",
-        "password_hash": "$2y$10$1j9n/eQxZ8.WGpPXw54sS.EGqXBOy.SVAHfFal46jUO7pCB5CFnAK",
+        "password_hash": "$2y$10$M5vKJeHwtT7Slkj6I.wxc.wdbJwcwORtjI78mBN\/IHc1sDWasy8Se",
         "role": "admin",
         "active": true,
         "display_name": "SSIS Administrator",
         "created_at": "2026-10-20T03:05:04+00:00",
-        "updated_at": "2026-10-20T03:05:04+00:00"
+        "updated_at": "2026-10-25T17:36:11+01:00"
     },
     {
         "id": "usr_1fe4abcfb57b869d",
         "username": "2026-00123",
-        "password_hash": "$2y$10$3dwg2UDtIl6cnVN1QnCqAO6A1Utl0qQxIBg5JKI/qy1XaPUnmgIIO",
+        "password_hash": "$2y$10$nCuCX0LsxehpSsps6YlbaeXOLJOJR40m1ikXXJXWLrpmdwlsOIo8u",
         "role": "student",
         "active": true,
         "display_name": "Maria Santos",
         "created_at": "2026-10-20T03:05:04+00:00",
-        "updated_at": "2026-10-20T03:05:04+00:00"
+        "updated_at": "2026-10-25T08:47:27+00:00"
     },
     {
         "id": "usr_c16ebb35b137b89f",
         "username": "2026-00124",
-        "password_hash": "$2y$10$gi0.j9CkxwU3CDrcSrRh3OubrGmlAQWN.IqXrs0IkmJZNCS1X5KEO",
+        "password_hash": "$2y$10$3GrqK7BAjZ3z2AT\/8.Oor.ENsObVZM3L7Y1BIueKEPHZAq5T3lNV6",
         "role": "student",
         "active": true,
         "display_name": "Juan Dela Cruz",
         "created_at": "2026-10-20T03:05:04+00:00",
-        "updated_at": "2026-10-20T03:05:04+00:00"
+        "updated_at": "2026-10-25T08:47:28+00:00"
     },
     {
         "id": "usr_5fafdaaad381cec6",
         "username": "2026-00125",
-        "password_hash": "$2y$10$aq7GPT9T5MEOdWIhmZsvJ.ff0nyHz1LdQjttiNX.OsMQO/akixKoK",
+        "password_hash": "$2y$10$ss5o44Wb65nlv0L05prB\/Oes6GQRzA3QEz8arKlPuxuBPU3OI\/sqy",
         "role": "student",
         "active": true,
         "display_name": "Ana Reyes",
         "created_at": "2026-10-20T03:05:05+00:00",
-        "updated_at": "2026-10-20T03:05:05+00:00"
+        "updated_at": "2026-10-25T08:47:28+00:00"
     }
 ]

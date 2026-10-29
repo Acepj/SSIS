@@ -63,4 +63,64 @@ final class NotificationService
             'createdAt' => (string) $notification['created_at'],
         ];
     }
+
+    /** @return array<int, array<string, mixed>> admin list with recipient enrichment */
+    public function listForAdmin(string $search = '', string $recipient = ''): array
+    {
+        $all = $this->notifications->all();
+        $users = [];
+        foreach ($this->users->all() as $u) {
+            $users[(string) $u['id']] = $u;
+        }
+
+        $result = [];
+        foreach ($all as $notification) {
+            $recipientUserId = (string) ($notification['recipient_user_id'] ?? '');
+            if ($recipient !== '' && $recipientUserId !== $recipient) {
+                continue;
+            }
+            if ($search !== '' && !str_contains(strtolower((string) ($notification['title'] ?? '')), strtolower($search))
+                && !str_contains(strtolower($recipientUserId), strtolower($search))) {
+                continue;
+            }
+
+            $recipient = $users[$recipientUserId] ?? null;
+            $result[] = [
+                'id' => (string) $notification['id'],
+                'recipientUserId' => $recipientUserId,
+                'recipientName' => $recipient !== null ? (string) $recipient['full_name'] : '',
+                'title' => (string) ($notification['title'] ?? ''),
+                'message' => (string) ($notification['message'] ?? ''),
+                'readAt' => $notification['read_at'] ?? null,
+                'createdAt' => (string) ($notification['created_at'] ?? ''),
+            ];
+        }
+
+        return $result;
+    }
+
+    /** @param array<string, mixed> $input validated admin input */
+    public function createByAdmin(string $recipientUserId, string $title, string $message, string $actorId): array
+    {
+        $this->notifications->create([
+            'recipient_user_id' => $recipientUserId,
+            'title' => trim($title),
+            'message' => trim($message),
+            'created_by' => $actorId,
+        ]);
+
+        $recipient = $this->users->findByUserId($recipientUserId);
+        if ($recipient === null) {
+            throw new NotFoundException('Recipient user not found.', 'NOT_FOUND');
+        }
+
+        return [
+            'id' => 'created',
+            'recipientUserId' => $recipientUserId,
+            'recipientName' => (string) $recipient['full_name'],
+            'title' => trim($title),
+            'message' => trim($message),
+            'createdAt' => gmdate('c'),
+        ];
+    }
 }

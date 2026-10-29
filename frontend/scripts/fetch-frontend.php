@@ -1,0 +1,11 @@
+<?php
+$url = $argv[1] ?? 'http://localhost:5173/api/v1/auth/csrf';
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HEADER, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+curl_close($ch);
+echo "HTTP_CODE=$httpCode\n";
+echo $response . PHP_EOL;

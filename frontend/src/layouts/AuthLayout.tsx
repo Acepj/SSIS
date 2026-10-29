@@ -32,7 +32,7 @@ export default function AuthLayout() {
 
         <div className="relative">
           <div className="flex items-center gap-3">
-            <img src="/images/logo.svg" alt={`${appConfig.name} logo`} className="h-10 w-auto" />
+            <img src="/images/ssis.png" alt={`${appConfig.name} logo`} className="h-10 w-auto" />
             <div>
               <p className="text-lg font-semibold tracking-wide">{appConfig.name}</p>
               <p className="text-xs text-white/70">{appConfig.fullName}</p>

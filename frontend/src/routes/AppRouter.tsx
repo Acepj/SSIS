@@ -18,27 +18,18 @@ import RequestDetailsPage from '@/pages/student/RequestDetailsPage'
 import RequestStatusPage from '@/pages/student/RequestStatusPage'
 import StudentDashboardPage from '@/pages/student/StudentDashboardPage'
 import StudentProfilePage from '@/pages/student/StudentProfilePage'
-import { PendingPhasePage } from './PendingPhasePage'
 import { routePaths } from './routePaths'
-
-const ADMIN_PHASE = 'Phase 5 - Admin Portal'
-
-const pendingAdminRoutes: Array<[string, string]> = [
-  ['/admin/dashboard', 'Dashboard'],
-  ['/admin/students', 'Student Management'],
-  ['/admin/students/new', 'Create Student'],
-  ['/admin/students/:id', 'Student Details'],
-  ['/admin/students/:id/edit', 'Edit Student'],
-  ['/admin/requests', 'Document Requests'],
-  ['/admin/requests/:id', 'Request Details'],
-  ['/admin/enrollment', 'Enrollment Management'],
-  ['/admin/courses', 'Course Management'],
-  ['/admin/courses/new', 'Create Course'],
-  ['/admin/courses/:id/edit', 'Edit Course'],
-  ['/admin/notifications', 'Notifications'],
-  ['/admin/reports', 'Reports'],
-  ['/admin/profile', 'Admin Profile'],
-]
+import AdminLayout from '@/layouts/AdminLayout'
+import AdminDashboardPage from '@/pages/admin/AdminDashboardPage'
+import AdminStudentsPage from '@/pages/admin/AdminStudentsPage'
+import AdminStudentDetailsPage from '@/pages/admin/AdminStudentDetailsPage'
+import AdminEnrollmentPage from '@/pages/admin/AdminEnrollmentPage'
+import AdminCoursesPage from '@/pages/admin/AdminCoursesPage'
+import AdminDocumentRequestsPage from '@/pages/admin/AdminDocumentRequestsPage'
+import AdminNotificationsPage from '@/pages/admin/AdminNotificationsPage'
+import AdminReportsPage from '@/pages/admin/AdminReportsPage'
+import AdminProfilePage from '@/pages/admin/AdminProfilePage'
+import { PendingPhasePage } from './PendingPhasePage'
 
 /**
  * Central route definitions. Private routes are wrapped in session and role
@@ -74,9 +65,22 @@ export default function AppRouter() {
           </Route>
 
           <Route element={<RoleGuard role="admin" />}>
-            {pendingAdminRoutes.map(([path, title]) => (
-              <Route key={path} path={path} element={<PendingPhasePage title={title} phase={ADMIN_PHASE} />} />
-            ))}
+            <Route element={<AdminLayout />}>
+              <Route path={routePaths.admin.dashboard} element={<AdminDashboardPage />} />
+              <Route path={routePaths.admin.students} element={<AdminStudentsPage />} />
+              <Route path={routePaths.admin.createStudent} element={<PendingPhasePage title="Create Student" phase="Phase 5 - Admin Portal" />} />
+              <Route path={routePaths.admin.studentDetails(':id')} element={<AdminStudentDetailsPage />} />
+              <Route path={routePaths.admin.editStudent(':id')} element={<PendingPhasePage title="Edit Student" phase="Phase 5 - Admin Portal" />} />
+              <Route path={routePaths.admin.enrollment} element={<AdminEnrollmentPage />} />
+              <Route path={routePaths.admin.courses} element={<AdminCoursesPage />} />
+              <Route path={routePaths.admin.createCourse} element={<PendingPhasePage title="Create Course" phase="Phase 5 - Admin Portal" />} />
+              <Route path={routePaths.admin.editCourse(':id')} element={<PendingPhasePage title="Edit Course" phase="Phase 5 - Admin Portal" />} />
+              <Route path={routePaths.admin.requests} element={<AdminDocumentRequestsPage />} />
+              <Route path={routePaths.admin.requestDetails(':id')} element={<PendingPhasePage title="Request Details" phase="Phase 5 - Admin Portal" />} />
+              <Route path={routePaths.admin.notifications} element={<AdminNotificationsPage />} />
+              <Route path={routePaths.admin.reports} element={<AdminReportsPage />} />
+              <Route path={routePaths.admin.profile} element={<AdminProfilePage />} />
+            </Route>
           </Route>
         </Route>
 

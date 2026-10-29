@@ -15,13 +15,20 @@ function isActivePath(current: string, prefix: string): boolean {
 export interface SidebarNavProps {
   currentPath: string
   onNavigate?: () => void
+  navItems?: NavigationItem[]
+  sectionTitle?: string
 }
 
 /** Shared navigation list used by both the desktop sidebar and the mobile drawer. */
-export function SidebarNav({ currentPath, onNavigate }: SidebarNavProps) {
+export function SidebarNav({
+  currentPath,
+  onNavigate,
+  navItems = studentNavigation,
+  sectionTitle,
+}: SidebarNavProps) {
   return (
-    <nav aria-label="Student" className="flex flex-col gap-1">
-      {studentNavigation.map((item) => {
+    <nav aria-label={sectionTitle ?? 'Navigation'} className="flex flex-col gap-1">
+      {navItems.map((item) => {
         const active = isActivePath(currentPath, item.matchPrefix)
         return (
           <NavLink
@@ -67,10 +74,18 @@ export interface SidebarShellProps {
   currentPath: string
   header?: ReactNode
   onNavigate?: () => void
+  navItems?: NavigationItem[]
+  sectionTitle?: string
 }
 
 /** Dark navy sidebar body: brand, navigation, assistance card, account actions. */
-export function SidebarShell({ currentPath, header, onNavigate }: SidebarShellProps) {
+export function SidebarShell({
+  currentPath,
+  header,
+  onNavigate,
+  navItems,
+  sectionTitle,
+}: SidebarShellProps) {
   const { signOut } = useAuth()
   const navigate = useNavigate()
 
@@ -82,17 +97,24 @@ export function SidebarShell({ currentPath, header, onNavigate }: SidebarShellPr
   return (
     <div className="flex h-full flex-col bg-sidebar text-white">
       <div className="flex items-center gap-2.5 px-5 pb-5 pt-6">
-        <img src="/images/logo.svg" alt={`${appConfig.name} logo`} className="h-9 w-auto" />
+        <img src="/images/ssis.png" alt={`${appConfig.name} logo`} className="h-9 w-auto" />
         <div className="leading-tight">
           <p className="text-[15px] font-semibold tracking-wide">{appConfig.name}</p>
-          <p className="text-[11px] text-white/60">Student Portal</p>
+          <p className="text-[11px] text-white/60">
+            {sectionTitle === 'Admin' ? 'Admin Portal' : 'Student Portal'}
+          </p>
         </div>
       </div>
 
       {header}
 
       <div className="flex-1 overflow-y-auto px-3 pb-4">
-        <SidebarNav currentPath={currentPath} onNavigate={onNavigate} />
+        <SidebarNav
+          currentPath={currentPath}
+          onNavigate={onNavigate}
+          navItems={navItems}
+          sectionTitle={sectionTitle}
+        />
 
         <div className="mt-6 rounded-xl bg-white/10 p-4">
           <div className="flex items-center gap-2">

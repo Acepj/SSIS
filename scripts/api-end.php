@@ -1,0 +1,7 @@
+<?php
+$f = file('backend/routes/api.php');
+echo 'total lines: ' . count($f) . PHP_EOL;
+$start = max(0, count($f) - 8);
+for ($i = $start; $i < count($f); $i++) {
+    echo ($i + 1) . ' | ' . trim($f[$i]) . PHP_EOL;
+}
