@@ -1,4 +1,4 @@
-# SSIS — Student Services Information System
+# SSIS - Student Services Information System
 
 A full-stack university student services application: students access services,
 submit document requests and track them; administrators manage students,
