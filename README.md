@@ -2,7 +2,7 @@
 
 A full-stack university student services application: students access services,
 submit document requests and track them; administrators manage students,
-requests, enrollments, courses, notifications and reports.
+requests, enrollments, courses, notifications and reportss.
 
 ## Architecture
 
